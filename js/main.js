@@ -1,26 +1,26 @@
-//import av klassen Tamagotchi
 import { Tamagotchi } from './tamagotchi.js';
 
-//deklarar en variabel för form
 const form = document.querySelector('#tamagotchi-form');
+const nameInput = document.querySelector('#name-input');
+const typeInput = document.querySelector('#type-input');
+const petsContainer = document.querySelector('#pets-container');
+const formMessage = document.querySelector('#form-message');
 
-//event-listener på knappen "submit"
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  
-  //deklarerar variabler för att inhämta användarens inputs
-  const nameInput = document.querySelector('#name-input');
-  const typeInput = document.querySelector('#type-input');
-  
-  //värdet av användarens inputs
-  const name = nameInput.value;
-  const type = typeInput.value;
-  
-  //skapar nytt tamagotchi-objekt
-  const tamagotchi = new Tamagotchi(name, type);
-  
-  //tömmer input-fälten
-  nameInput.value = '';
-  typeInput.value = '';
-});
 
+  const name = nameInput.value.trim();
+  const type = typeInput.value;
+
+  if (!name) {
+    formMessage.textContent = 'Please add a name before creating your Tamagotchi.';
+    nameInput.focus();
+    return;
+  }
+
+  new Tamagotchi(name, type, petsContainer);
+  formMessage.textContent = `${name} the ${type} is ready!`;
+
+  nameInput.value = '';
+  nameInput.focus();
+});
