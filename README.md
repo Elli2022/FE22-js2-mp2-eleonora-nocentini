@@ -6,7 +6,7 @@ Today, **2026-05-28**, the project was updated to a modern app stack while keepi
 
 ## Live Preview
 
-Deployed on Netlify (link added after deploy).
+Deployed on Netlify: <https://friendly-piroshki-56ad1d.netlify.app>
 
 ## Screenshot
 
